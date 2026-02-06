@@ -55,7 +55,7 @@ export class CreateProductDto {
   @IsString()
   @IsOptional()
   @MaxLength(200)
-  slug?: string;
+  slug: string;
 
   @ApiProperty({
     example: 'https://example.com/image.jpg',
