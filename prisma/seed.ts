@@ -1,4 +1,6 @@
 import { PrismaClient, Role } from '@prisma/client';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { Pool } from 'pg';
 import * as bcrypt from 'bcrypt';
 
 import 'dotenv/config';
@@ -6,7 +8,11 @@ import 'dotenv/config';
 const dbUrl = process.env.DATABASE_URL;
 console.log('Using Database URL:', dbUrl);
 
-const prisma = new PrismaClient();
+const pool = new Pool({
+  connectionString: dbUrl,
+});
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log('Starting database seeding...');
@@ -153,10 +159,14 @@ async function main() {
   ];
 
   for (const product of products) {
+    const slugId = product.name.toLowerCase().replace(/\s+/g, '-');
     const created = await prisma.product.upsert({
-      where: { id: product.name.toLowerCase().replace(/\s+/g, '-') },
+      where: { slug: slugId },
       update: {},
-      create: product,
+      create: {
+        ...product,
+        slug: slugId,
+      },
     });
     console.log(`Product created: ${created.name}`);
   }
@@ -171,4 +181,5 @@ main()
   })
   .finally(async () => {
     await prisma.$disconnect();
+    await pool.end();
   });
