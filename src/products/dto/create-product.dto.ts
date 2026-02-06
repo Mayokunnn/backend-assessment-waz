@@ -48,6 +48,16 @@ export class CreateProductDto {
   stock: number;
 
   @ApiProperty({
+    example: 'wireless-headphones',
+    description: 'URL-friendly product identifier',
+    required: false,
+  })
+  @IsString()
+  @IsOptional()
+  @MaxLength(200)
+  slug?: string;
+
+  @ApiProperty({
     example: 'https://example.com/image.jpg',
     description: 'Product image URL',
     required: false,
