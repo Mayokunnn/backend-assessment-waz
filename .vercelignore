@@ -1,0 +1,15 @@
+node_modules
+.git
+.env
+.env.local
+.env.*.local
+.gitignore
+README.md
+test
+dist
+coverage
+.eslintignore
+nest-cli.json
+tsconfig.build.json
+prisma/migrations
+.DS_Store
