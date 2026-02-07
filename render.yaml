@@ -5,7 +5,7 @@ services:
     region: oregon
     plan: free
     buildCommand: npm install && npm run render-build
-    startCommand: node dist/main.js
+    startCommand: node dist/src/main.js
     healthCheckPath: /
     envVars:
       - key: NODE_ENV
