@@ -43,6 +43,7 @@ This project is configured to deploy to [Render](https://render.com).
 ## Accessing Your Application
 
 Once deployed, your application will be available at:
+
 - Base URL: `https://your-service-name.onrender.com`
 - API Docs: `https://your-service-name.onrender.com/api/docs`
 - Root endpoint: `https://your-service-name.onrender.com/`
@@ -63,16 +64,19 @@ Once deployed, your application will be available at:
 ## Troubleshooting
 
 ### Database Connection Issues
+
 - Ensure `DATABASE_URL` is correctly set in environment variables
 - Check that the database is running and accessible
 - Review migration status: `npx prisma migrate status`
 
 ### Build Failures
+
 - Check the Render build logs for specific errors
 - Ensure all dependencies are in `package.json` and `package-lock.json` is committed
 - Verify Node.js version in `.nvmrc` is compatible
 
 ### Application Not Starting
+
 - Review application logs in Render dashboard
 - Check environment variables are correctly set
 - Verify the `render.yaml` configuration is valid
@@ -80,6 +84,7 @@ Once deployed, your application will be available at:
 ## Re-deploying
 
 After pushing changes to GitHub:
+
 1. Render will automatically detect changes in your repository
 2. Click the "Deploy" button or go to the "Deploys" section
 3. Select "Deploy latest commit" to start a new deployment
@@ -87,6 +92,7 @@ After pushing changes to GitHub:
 ## Rolling Back
 
 To rollback to a previous deployment:
+
 1. Go to the "Deploys" section in your service
 2. Find the previous successful deployment
 3. Click "Redeploy" next to it
@@ -94,6 +100,7 @@ To rollback to a previous deployment:
 ## Custom Domain
 
 To add a custom domain:
+
 1. Go to your service settings
 2. In the "Custom Domain" section, add your domain
 3. Update your DNS records according to Render's instructions

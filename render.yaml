@@ -4,8 +4,8 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: npm install && npm run build && npx prisma migrate deploy
-    startCommand: npm run start:prod
+    buildCommand: npm ci --ignore-scripts && npm run build && npx prisma migrate deploy
+    startCommand: node dist/main.js
     healthCheckPath: /
     envVars:
       - key: NODE_ENV
@@ -19,9 +19,9 @@ services:
       - key: JWT_EXPIRATION
         value: 7d
       - key: THROTTLE_TTL
-        value: "60"
+        value: '60'
       - key: THROTTLE_LIMIT
-        value: "100"
+        value: '100'
 
 databases:
   - name: ecommerce-db
