@@ -169,18 +169,6 @@ npm run start:prod
 
 The server will start on `http://localhost:3000`
 
-## Deploy to Vercel
-
-Deploy this backend instantly to Vercel with zero configuration:
-
-1. Push code to GitHub
-2. Go to [vercel.com](https://vercel.com) and click "New Project"
-3. Import your GitHub repository
-4. Add environment variable: `DATABASE_URL` (your PostgreSQL connection string)
-5. Click "Deploy"
-
-Your API will be live with a production URL. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
-
 ## 📚 API Documentation
 
 Access the interactive Swagger documentation at:
